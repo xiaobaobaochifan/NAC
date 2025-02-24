@@ -15,7 +15,7 @@ The content of each folder/script within either `continuous` or `discrete`:
 
 In the following sections, the 'Requirements' lists all necessary packages and their versions. 'Environment Configuration' guides you through setting up the execution environment, and 'Execution' provides an example command to run the code.
 
-## Requirements
+## 📌 Requirements
 
 To execute the provided code, the following dependencies are necessary.  
 
@@ -29,7 +29,7 @@ swig
 sumo-rl == 1.4.5
 ```
 
-## Environment configuration
+## 🛠️ Environment configuration
 Here we provide the setup of the environment step by step. To avoid discrepancies, it is recommended to set separate environment for continuous and discrete experiments.
 
 Continuous case:
@@ -79,7 +79,7 @@ pip install sumo-rl
 pip install joblib
 ```
 
-## Execution
+## 💻 Execution
 
 After we setup the environment successfully, please run the following to execute the code:
 ```
@@ -89,7 +89,11 @@ python main.py --reps 10 --exp_name 'try' --epochs_trn 100 --epochs_eva 50 --see
 
 To reproduce the results claimed in the paper, please just setup the corresponding parameters as described in the paper. 
 
-## Citation
+## 📜 License
+
+This project is licensed under the MIT License. Feel free to modify and use it.
+
+## 📖 Citation
 If you use this repository or the proposed methods in your work, please cite it as follows:
 
 ```bibtex
