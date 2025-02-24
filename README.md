@@ -1,6 +1,6 @@
 # README
 
-This is the supplementary material for reproducing the results of the paper titled as "To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning". 
+This is the official repository for reproducing the results of the paper titled as "To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning". 
 
 There are two folders inside `src`:
 * `continuous`: complete set of source code for continuous state space cases (i.e. Gymnasium);
