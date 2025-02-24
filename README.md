@@ -1,4 +1,4 @@
-# README
+# Net Actor-Critic
 
 This is the official repository for the algorithm of Net Actor-Critic (NAC) and reproducing the results of the paper titled [To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning](https://arxiv.org/abs/2407.01837). 
 
