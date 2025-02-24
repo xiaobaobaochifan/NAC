@@ -1,6 +1,6 @@
 # README
 
-This is the official repository for reproducing the results of the paper titled as "To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning". 
+This is the official repository for reproducing the results of the paper titled as [To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning](https://arxiv.org/abs/2407.01837). 
 
 There are two folders inside `src`:
 * `continuous`: complete set of source code for continuous state space cases (i.e. Gymnasium);
@@ -86,3 +86,14 @@ python main.py --reps 10 --exp_name 'try' --epochs_trn 100 --epochs_eva 50 --see
 
 To reproduce the results claimed in the paper, please just setup the corresponding parameters as described in the paper. 
 
+## Citation
+If you use this repository or the proposed methods in your work, please cite it as follows:
+
+```bibtex
+@article{ma2024switch,
+  title={To switch or not to switch? Balanced policy switching in offline reinforcement learning},
+  author={Ma, Tao and Yang, Xuzhi and Szabo, Zoltan},
+  journal={arXiv preprint arXiv:2407.01837},
+  year={2024}
+}
+```
