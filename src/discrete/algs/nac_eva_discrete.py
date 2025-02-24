@@ -16,11 +16,6 @@ def nac_evaluate(env_fn, offline_data, ac_old, ac_new, cost_fn,
     The main function to evaulate the learned switch-optimal policy or the old policy,
     should be followed by the decision with nac_decision
 
-    
-    Arguments:
-
-        ac:
-
     '''
 
     logger = EpochLogger(**logger_kwargs)
