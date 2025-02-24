@@ -35,6 +35,9 @@ Here we provide the setup of the environment step by step. To avoid discrepancie
 Continuous case:
 
 ```
+conda create -n gymrl python=3.11
+conda activate gymrl
+
 pip install mujoco
 pip install "gymnasium[all]"
 conda install -c conda-forge xorg-libx11
