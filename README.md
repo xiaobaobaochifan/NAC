@@ -1,6 +1,6 @@
 # README
 
-This is the official repository for reproducing the results of the paper titled as [To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning](https://arxiv.org/abs/2407.01837). 
+This is the official repository for the algorithm of Net Actor-Critic (NAC) and reproducing the results of the paper titled as [To Switch or Not to Switch? Balanced Policy Switching in Offline Reinforcement Learning](https://arxiv.org/abs/2407.01837). 
 
 There are two folders inside `src`:
 * `continuous`: complete set of source code for continuous state space cases (i.e. Gymnasium);
