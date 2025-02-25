@@ -91,7 +91,7 @@ To reproduce the results claimed in the paper, please just setup the correspondi
 
 ## 📜 License
 
-This project is licensed under the MIT License. Feel free to modify and use it.
+This project is licensed under the GPL-3.0 license.
 
 ## 📖 Citation
 If you use this repository or the proposed methods in your work, please cite it as follows:
