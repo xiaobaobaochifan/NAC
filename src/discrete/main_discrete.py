@@ -44,8 +44,8 @@ if __name__ == '__main__':
     parser.add_argument('--batch_size', type=int, default=256)  # batch size
     parser.add_argument('--scratch', type=bool, default=False)  # whether train a policy from scratch
     parser.add_argument('--act_partition', type=str, default="default") # choice of ways to partition the action space
-    parser.add_argument('--lc', type=int, default=10)   # learning cost coefficient
-    parser.add_argument('--tc', type=int, default=1)    # transaction cost coefficient
+    parser.add_argument('--lc', type=float, default=10)   # learning cost coefficient
+    parser.add_argument('--tc', type=float, default=1)    # transaction cost coefficient
     parser.add_argument('--seed', type=int, default=4)  # starting value of consecutive random seeds
     parser.add_argument('--state_gen_runs_trn', type=int, default=10)   # number of sampled states in training to compute costs
     parser.add_argument('--state_gen_runs_eva', type=int, default=10000)    # number of samples states in evalaution to compute costs

@@ -96,24 +96,33 @@ def sac(env_name, actor_critic=core.DiscreteMLPActorCritic, ac_kwargs=dict(), se
 
     # Set up function for computing SAC pi loss
     def compute_loss_pi(data):
-
         o = data['obs']
-        pi, prob = ac.pi(o, with_prob=True)
-        pi = pi.long()  # Ensure sampled actions are long
-
-        q1_pi = ac.q1(o).gather(1, pi.unsqueeze(-1)).squeeze(-1)
-        q2_pi = ac.q2(o).gather(1, pi.unsqueeze(-1)).squeeze(-1)
-        q_pi = torch.min(q1_pi, q2_pi)
-
-        # Compute the entropy term
-        entropy_term = - torch.sum(prob * torch.log(prob + 1e-8), dim=1)
-    
-        # Entropy-regularized policy loss
-        loss_pi = (- alpha * entropy_term - q_pi).mean()
-
-        # Useful info for logging
+        # Get the probability mass vector from the policy.
+        # Here, we only need the probabilities (a tensor of shape [batch, act_dim])
+        _, prob = ac.pi(o, with_prob=True)
+        
+        # Compute the log probabilities for the entropy term
+        log_prob = torch.log(prob + 1e-8)  # shape: [batch, act_dim]
+        
+        # Evaluate the Q-values from both critics for all actions.
+        q1_all = ac.q1(o)  # shape: [batch, act_dim]
+        q2_all = ac.q2(o)  # shape: [batch, act_dim]
+        q_all = torch.min(q1_all, q2_all)  # shape: [batch, act_dim]
+        
+        # Compute the expected Q-value under the current policy:
+        # This is the sum over all actions of (pi(a|o) * Q(o,a))
+        expected_q = torch.sum(prob * q_all, dim=1)  # shape: [batch]
+        
+        # Compute the entropy term: -sum_a pi(a|o)*log(pi(a|o))
+        entropy_term = - torch.sum(prob * log_prob, dim=1)  # shape: [batch]
+        
+        # The policy loss is defined to maximize the expected Q-value and the entropy.
+        # We therefore minimize the negative of that sum:
+        loss_pi = (- alpha * entropy_term - expected_q).mean()
+        
+        # Useful info for logging: record entropy values.
         pi_info = dict(EntropyPi=entropy_term.detach().numpy())
-
+        
         return loss_pi, pi_info
 
     # Set up optimizers for policy and q-function
